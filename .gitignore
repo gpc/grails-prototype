@@ -8,3 +8,4 @@ target
 *.iws
 web-app/WEB-INF
 *.log
+*.zip

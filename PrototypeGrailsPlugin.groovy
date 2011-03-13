@@ -1,6 +1,9 @@
+import grails.plugin.prototype.PrototypeProvider
+import static org.codehaus.groovy.grails.plugins.web.taglib.JavascriptTagLib.*
+
 class PrototypeGrailsPlugin {
 	
-    def version = "1.4.BUILD-SNAPSHOT"
+    def version = "1.0-SNAPSHOT"
     def grailsVersion = "1.3.7 > *"
     def dependsOn = [:]
     def pluginExcludes = [
@@ -27,6 +30,13 @@ Grails and provides integration of those libraries with Grails' Javascript tags.
     }
 
     def doWithApplicationContext = { applicationContext ->
+		LIBRARY_MAPPINGS.prototype = ["prototype/prototype"]
+        LIBRARY_MAPPINGS.scriptaculous = LIBRARY_MAPPINGS.prototype + ["prototype/scriptaculous"]
+        LIBRARY_MAPPINGS.rico = LIBRARY_MAPPINGS.prototype + ["prototype/rico"]
+
+		PROVIDER_MAPPINGS.prototype = PrototypeProvider
+	    PROVIDER_MAPPINGS.scriptaculous = PrototypeProvider
+	    PROVIDER_MAPPINGS.rico = PrototypeProvider
     }
 
     def onChange = { event ->
