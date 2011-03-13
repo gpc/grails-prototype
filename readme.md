@@ -1,8 +1,13 @@
 # Prototype Grails Plugin
 
-This plugin integrates the [Prototype][1], [Scriptaculous][2] and [Rico][3] Javascript libraries into Grails. In Grails versions prior to 1.4 these libraries were included by default in Grails.
+This plugin integrates the [Prototype][1], [Scriptaculous][2] and [Rico][3] Javascript libraries into Grails. In Grails versions prior to 1.4 these libraries were included by default in Grails. As of Grails 1.4 [jQuery][5] is the default Javascript library in the Grails distribution with this plugin providing an alternative for those who would rather use Prototype or want to upgrade an existing Grails application that uses Prototype based script.
 
 # Using the plugin
+
+In order to use Prototype rather than jQuery in a Grails app you just need to:
+
+	grails uninstall-plugin jquery
+	grails install-plugin prototype
 
 ## Including libraries
 
@@ -27,3 +32,4 @@ If you are using the [Resources plugin][4] you can include Prototype libraries t
 [2]:http://script.aculo.us/
 [3]:http://openrico.org/
 [4]:http://grails.org/plugin/resources
+[5]:http://jquery.org/

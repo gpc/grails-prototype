@@ -7,6 +7,7 @@ class PrototypeGrailsPlugin {
     def grailsVersion = "1.3.7 > *"
     def dependsOn = [:]
     def pluginExcludes = [
+			"grails-app/controllers/**/*",
             "grails-app/views/**/*"
     ]
 

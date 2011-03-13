@@ -3,9 +3,9 @@ package grails.plugin.prototype
 import spock.lang.*
 import grails.plugin.geb.*
 
-class PrototypeSpec extends GebSpec {
+class ResourcesSpec extends GebSpec {
 	
-	@Unroll("prototype javascript libraries load correctly with #description")
+	@Unroll("prototype javascript libraries load correctly with #tag")
 	def "prototype javascript libraries load correctly"() {
 		given:
 		go url
@@ -16,9 +16,9 @@ class PrototypeSpec extends GebSpec {
 		$("#rico-version").text() == "1.1-beta2"
 		
 		where:
-		url             | description
+		url             | tag
 		"libraries.gsp" | "g:javascript"
-		"resources.gsp" | "resources plugin"
+		"resources.gsp" | "r:use"
 	}
 	
 }
