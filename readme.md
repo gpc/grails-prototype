@@ -27,6 +27,12 @@ Will be converted to:
 If you are using the [Resources plugin][4] you can include Prototype libraries that way. e.g.:
 
 	<r:use module="scriptaculous"/>
+	
+## Using Grails' AJAX tags
+
+In order to have Grails' built-in AJAX tags such as `g:formRemote` and `g:remoteLink` to generate Prototype code you need to add the following declaration to your GSP:
+
+	<g:setProvider library="prototype"/>
 
 [1]:http://prototypejs.org/
 [2]:http://script.aculo.us/
