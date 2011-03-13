@@ -22,3 +22,8 @@ Will be converted to:
 If you are using the [Resources plugin][4] you can include Prototype libraries that way. e.g.:
 
 	<r:use module="scriptaculous"/>
+
+[1]:http://prototypejs.org/
+[2]:http://script.aculo.us/
+[3]:http://openrico.org/
+[4]:http://grails.org/plugin/resources
