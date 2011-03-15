@@ -2,9 +2,7 @@
 <html>
 	<head>
 		<title>Prototype-based remote tags</title>
-		<r:use modules="prototype"/>
-		<r:layoutResources/>
-		<g:setProvider library="prototype"/>
+		<g:javascript library="prototype"/>
 		<style>
 			h1, h2 { margin: 0.5em 0; }
 			section, output { display: block; padding: 0.5em; }

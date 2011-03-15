@@ -4,7 +4,7 @@ import static org.codehaus.groovy.grails.plugins.web.taglib.JavascriptTagLib.*
 class PrototypeGrailsPlugin {
 	
     def version = "1.0-SNAPSHOT"
-    def grailsVersion = "1.3.7 > *"
+    def grailsVersion = "1.4 > *"
     def dependsOn = [:]
     def pluginExcludes = [
 			"grails-app/controllers/**/*",

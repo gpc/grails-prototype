@@ -5,8 +5,8 @@ import grails.plugin.geb.*
 
 class ResourcesSpec extends GebSpec {
 	
-	@Unroll("prototype javascript libraries load correctly with #tag")
-	def "prototype javascript libraries load correctly"() {
+	@Unroll
+	def "prototype javascript libraries load correctly with #tag"() {
 		given:
 		go url
 		

@@ -19,8 +19,8 @@ class RemoteTagsSpec extends GebSpec {
 		}
 	}
 	
-	@Unroll("#tag works with prototype")
-	def "remote link and function work with prototype"() {
+	@Unroll
+	def "executing a remote function with #tag works with prototype"() {
 		when:
 		$(container).find("a, button").click()
 		
@@ -35,8 +35,8 @@ class RemoteTagsSpec extends GebSpec {
 		"g:remoteLink"     | "#remote-link"
 	}
 	
-	@Unroll("#tag works with prototype")
-	def "remote forms work with prototype"() {
+	@Unroll
+	def "submitting a form with #tag works with prototype"() {
 		when:
 		$(container).value = "Whatever!"
 		$(container).find("input[type=button], button[type=submit]").click()
