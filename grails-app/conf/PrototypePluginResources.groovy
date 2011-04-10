@@ -1,13 +1,16 @@
 modules = {
-    "prototype" { 
-        resource url: [plugin: "prototype", dir: "js/prototype", file: "prototype.js"]
-    }
+	"prototype" { 
+		defaultBundle "prototype"
+		resource url: [plugin: "prototype", dir: "js/prototype", file: "prototype.js"]
+	}
 	"scriptaculous" {
 		dependsOn 'prototype'
-        resource url: [plugin: "prototype", dir: "js/prototype", file: "scriptaculous.js"]
+		defaultBundle "prototype"
+		resource url: [plugin: "prototype", dir: "js/prototype", file: "scriptaculous.js"]
 	}
-    "rico" { 
+	"rico" { 
 		dependsOn 'prototype'
-        resource url: [plugin: "prototype", dir: "js/prototype", file: "rico.js"]
-    }
+		defaultBundle "prototype"
+		resource url: [plugin: "prototype", dir: "js/prototype", file: "rico.js"]
+	}
 }
