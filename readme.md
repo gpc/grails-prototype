@@ -26,7 +26,7 @@ Will be converted to:
 
 If you are using the [Resources plugin][4] you can include Prototype libraries that way. e.g.:
 
-	<r:use module="scriptaculous"/>
+	<r:require module="scriptaculous"/>
 	
 ## Using Grails' AJAX tags
 
