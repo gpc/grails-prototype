@@ -1,3 +1,5 @@
+import grails.util.Environment
+
 class UrlMappings {
 
 	static mappings = {
@@ -9,5 +11,11 @@ class UrlMappings {
 
 		"/"(view:"/index")
 		"500"(view:'/error')
+
+        if (Environment.current == Environment.TEST) {
+            "/libraries"(view: '/libraries')
+            "/remote-tags"(view: '/remote-tags')
+            "/resources"(view: '/resources')
+        }
 	}
 }

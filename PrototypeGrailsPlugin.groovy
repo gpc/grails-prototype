@@ -1,9 +1,11 @@
 import grails.plugin.prototype.PrototypeProvider
-import static org.codehaus.groovy.grails.plugins.web.taglib.JavascriptTagLib.*
+
+import static org.codehaus.groovy.grails.plugins.web.taglib.JavascriptTagLib.getLIBRARY_MAPPINGS
+import static org.codehaus.groovy.grails.plugins.web.taglib.JavascriptTagLib.getPROVIDER_MAPPINGS
 
 class PrototypeGrailsPlugin {
 	
-    def version = "1.0"
+    def version = "1.0.1"
     def grailsVersion = "1.4 > *"
     def dependsOn = [:]
     def pluginExcludes = [

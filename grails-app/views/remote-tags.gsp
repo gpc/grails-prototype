@@ -8,15 +8,16 @@
 			section, output { display: block; padding: 0.5em; }
 			output { border: 2px dotted #ccc; height: 1em; width: 20em; margin: 0.5em 0 0 0; color: #666; }
 		</style>
+        <r:layoutResources/>
 	</head>
 	<body>
 		<h1>Prototype-based remote tags</h1>
 		
-		<section id="remote-field">
+		<div id="remote-field">
 			<h2>g:remoteField</h2>
 			<g:remoteField controller="test" action="reverse" update="remote-field-output" name="value"/>
 			<output id="remote-field-output"></output>
-		</section>
+		</div>
 		
 		<section id="remote-function">
 			<h2>g:remoteFunction</h2>
