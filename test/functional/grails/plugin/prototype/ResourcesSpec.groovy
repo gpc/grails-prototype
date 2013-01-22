@@ -1,9 +1,9 @@
 package grails.plugin.prototype
 
-import spock.lang.*
-import grails.plugin.geb.*
+import geb.spock.GebReportingSpec
+import spock.lang.Unroll
 
-class ResourcesSpec extends GebSpec {
+class ResourcesSpec extends GebReportingSpec {
 	
 	@Unroll
 	def "prototype javascript libraries load correctly with #tag"() {
@@ -16,9 +16,9 @@ class ResourcesSpec extends GebSpec {
 		$("#rico-version").text() == "1.1-beta2"
 		
 		where:
-		url             | tag
-		"libraries.gsp" | "g:javascript"
-		"resources.gsp" | "r:use"
+		url         | tag
+		"libraries" | "g:javascript"
+		"resources" | "r:use"
 	}
 	
 }

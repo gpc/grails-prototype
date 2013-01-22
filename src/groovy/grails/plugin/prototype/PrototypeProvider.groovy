@@ -10,7 +10,7 @@ import org.codehaus.groovy.grails.plugins.web.taglib.JavascriptValue
  */
 class PrototypeProvider implements JavascriptProvider {
 
-    def doRemoteFunction(taglib,attrs, out) {
+    def doRemoteFunction(taglib, attrs, out) {
         out << 'new Ajax.'
         if (attrs.update) {
             out << 'Updater('
@@ -36,32 +36,46 @@ class PrototypeProvider implements JavascriptProvider {
         }
         out << "'"
 
-        def url
-        def jsParams = [:]
-
+        // extract all JavascriptValue typed params as they cannot be encoded into the URL
+        // and have to be added to the parameters options
+        Map jsParams = [:]
         if (attrs.params instanceof Map) {
-            jsParams = attrs.params?.findAll { it.value instanceof JavascriptValue }
-            jsParams?.each { attrs.params?.remove(it.key) }
+            attrs.params?.each { key, value ->
+                if (value instanceof JavascriptValue) {
+                    jsParams[key] = attrs.params.remove(key)
+                }
+            }
         }
 
+        // build the URL and clean up
+        String url
         if (attrs.url) {
             url = taglib.createLink(attrs.url)?.toString()
+            attrs.remove('url')
+
+            if (!attrs.params) attrs.params = [:]
         }
         else {
             url = taglib.createLink(attrs)?.toString()
+            attrs.remove('controller')
+            attrs.remove('action')
+            attrs.remove('id')
+
+            // all parameter are already encoded into the URL as GET parameter,
+            // but will be extracted in the next step
+            if (attrs.params instanceof Map) attrs.params = [:]
         }
 
-        if (!attrs.params) attrs.params = [:]
         jsParams?.each { attrs.params[it.key] = it.value }
 
-        def i = url?.indexOf('?')
+        int i = url?.indexOf('?')
 
         if (i > -1) {
             if (attrs.params instanceof String) {
                 attrs.params += "+'&${url[i+1..-1].encodeAsJavaScript()}'"
             }
             else if (attrs.params instanceof Map) {
-                def params = createQueryString(attrs.params)
+                String params = createQueryString(attrs.params)
                 attrs.params = "'${params}${params ? '&' : ''}${url[i+1..-1].encodeAsJavaScript()}'"
             }
             else {
@@ -77,6 +91,7 @@ class PrototypeProvider implements JavascriptProvider {
         out << getAjaxOptions(attrs)
         // close
         out << ');'
+
         attrs.remove('params')
     }
 

@@ -1,12 +1,12 @@
 package grails.plugin.prototype
 
-import spock.lang.*
-import grails.plugin.geb.*
+import geb.spock.GebReportingSpec
+import spock.lang.Unroll
 
-class RemoteTagsSpec extends GebSpec {
-	
+class RemoteTagsSpec extends GebReportingSpec {
+
 	def setupSpec() {
-		go "remote-tags.gsp"
+		go "remote-tags"
 	}
 	
 	def "g:remoteField works with prototype"() {
