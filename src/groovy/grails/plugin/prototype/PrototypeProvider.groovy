@@ -62,7 +62,7 @@ class PrototypeProvider implements JavascriptProvider {
             }
             else if (attrs.params instanceof Map) {
                 def params = createQueryString(attrs.params)
-                attrs.params = "'${params}${params ? '&' : ''}${url[i+1..-1].encodeAsJavaScript()}'"
+                attrs.params = "'${params ? '&' : ''}${url[i+1..-1].encodeAsJavaScript()}'"
             }
             else {
                 attrs.params = "'${url[i+1..-1].encodeAsJavaScript()}'"
